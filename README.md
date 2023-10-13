@@ -374,3 +374,12 @@ Multiply two digits given by the user.
 - Read the two digits from stdin, multiply them, and print the result, followed by a new line
 
 
+
+
+
+
+-----------------
+## Collaborators:
+
+[MOHAMMED CHAKIR](https://github.com/mohammedchakir) & []()
+
