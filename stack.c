@@ -1,6 +1,11 @@
 #include "monty.h"
 #include <string.h>
 
+
+void free_stack(stack_t **stack)
+int check_mode(stack_t *stack)
+int init_stack(stack_t **stack)
+
 /**
  * free_stack - Deallocates memory used by a stack_t.
  * @stack: A pointer to the top (for stack) or bottom (for queue) of a stack_t.
