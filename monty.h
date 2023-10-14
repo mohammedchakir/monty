@@ -43,6 +43,8 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+int get_int(char **line, size_t *len, int script_fd);
+
 
 unsigned int token_arr_len(void);
 void free_tokens(void);
