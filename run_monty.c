@@ -32,7 +32,7 @@ unsigned int token_arr_len(void)
 {
 	unsigned int tok_len = 0;
 
-	while (op_tok[tok_len])
+	while (op_toks[tok_len])
 		tok_len++;
 	return (tok_len);
 }
