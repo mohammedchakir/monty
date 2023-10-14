@@ -7,37 +7,37 @@
  */
 char *get_int(int num)
 {
-	unsigned int temp;
-	int length = 0;
+	unsigned int tmp;
+	int leng = 0;
 	long num_l = 0;
-	char *ret;
+	char *reg;
 
-	temp = _abs(num);
-	length = get_numbase_len(temp, 10);
+	tmp = _abs(num);
+	len = get_numbase_len(tmp, 10);
 
 	if (num < 0 || num_l < 0)
-		length++;
-	ret = malloc(length + 1);
-	if (!ret)
+		len++;
+	reg = malloc(len + 1);
+	if (!reg)
 		return (NULL);
 
-	fill_numbase_buff(temp, 10, ret, length);
+	fill_numbase_buff(tmp, 10, reg, len);
 	if (num < 0 || num_l < 0)
-		ret[0] = '-';
+		reg[0] = '-';
 
-	return (ret);
+	return (reg);
 }
 
 /**
  * _abs - Calculates the absolute value of an integer.
- * @i: The integer to find the absolute value of.
+ * @a: The integer to find the absolute value of.
  * Return: An unsigned integer representing the absolute value of i.
  */
-unsigned int _abs(int i)
+unsigned int _abs(int a)
 {
-	if (i < 0)
-		return (-(unsigned int)i);
-	return ((unsigned int)i);
+	if (a < 0)
+		return (-(unsigned int)a);
+	return ((unsigned int)a);
 }
 
 /**
@@ -48,14 +48,14 @@ unsigned int _abs(int i)
  */
 int get_numbase_len(unsigned int num, unsigned int base)
 {
-	int len = 1; /* all numbers contain atleast one digit */
+	int length = 1;
 
 	while (num > base - 1)
 	{
-		len++;
+		length++;
 		num /= base;
 	}
-	return (len);
+	return (length);
 }
 
 /**
@@ -66,20 +66,19 @@ int get_numbase_len(unsigned int num, unsigned int base)
  * @buff_size: The size of the buffer in bytes.
  * Return: Always void.
  */
-void fill_numbase_buff(unsigned int num, unsigned int base,
-			char *buff, int buff_size)
+void fill_numbase_buff(unsigned int num, unsigned int base, char *buff, int buff_size)
 {
-	int rem, i = buff_size - 1;
+	int reb, a = buff_size - 1;
 
 	buff[buff_size] = '\0';
-	while (i >= 0)
+	while (a >= 0)
 	{
-		rem = num % base;
-		if (rem > 9) /* return lowercase ascii val representation */
-			buff[i] = rem + 87; /* 10 will be a, 11 = b, ... */
+		reb = num % base;
+		if (reb > 9)
+			buff[a] = reb + 87;
 		else
-			buff[i] = rem + '0';
+			buff[i] = reb + '0';
 		num /= base;
-		i--;
+		a--;
 	}
 }
