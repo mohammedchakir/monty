@@ -1,5 +1,9 @@
 #include "monty.h"
 
+void monty_nop(stack_t **stack, unsigned int line_number)
+void monty_pstr(stack_t **stack, unsigned int line_number)
+void monty_pchar(stack_t **stack, unsigned int line_number)
+
 /**
  * monty_nop - Performs no operation for the Monty opcode 'nop'.
  * @stack: A pointer to the topmost node of a stack_t linked list.
