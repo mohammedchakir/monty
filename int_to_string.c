@@ -1,7 +1,7 @@
 #include <stdlib.h>
 
 
-unsigned int _abs(int i);
+unsigned int _abs(int a);
 char *get_int(int num);
 int get_numbase_len(unsigned int num, unsigned int base);
 void fill_numbase_buff(unsigned int num, unsigned int base,
@@ -37,14 +37,14 @@ char *get_int(int num)
 
 /**
  * _abs - Calculates the absolute value of an integer.
- * @i: The integer to find the absolute value of.
+ * @a: The integer to find the absolute value of.
  * Return: An unsigned integer representing the absolute value of i.
  */
-unsigned int _abs(int i)
+unsigned int _abs(int a)
 {
-	if (i < 0)
-		return (-(unsigned int)i);
-	return ((unsigned int)i);
+	if (a < 0)
+		return (-(unsigned int)a);
+	return ((unsigned int)a);
 }
 
 /**
