@@ -1,5 +1,11 @@
 #include <stdlib.h>
 
+
+unsigned int _abs(int i)
+char *get_int(int num)
+int get_numbase_len(unsigned int num, unsigned int base)
+void fill_numbase_buff(unsigned int num, unsigned int base, char *buff, int buff_size)
+
 /**
  * get_int - Converts an integer to a character pointer for a new string.
  * @num: The number to convert to a string.
