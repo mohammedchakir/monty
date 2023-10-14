@@ -1,5 +1,11 @@
 #include "monty.h"
 
+int pchar_error(unsigned int line_number, char *message)
+int div_error(unsigned int line_number)
+int pint_error(unsigned int line_number)
+int pop_error(unsigned int line_number)
+int short_stack_error(unsigned int line_number, char *op)
+
 /**
  * pop_error - Prints error messages for popping from an empty stack.
  * @line_number: The line number in the script where the error occurred.
