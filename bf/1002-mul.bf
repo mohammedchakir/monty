@@ -12,7 +12,7 @@
 # loop while block 2 != 0 adding the value of block 1 to block 0 every time
 
 # BLOCK 0	BLOCK 1		BLOCK 2		BLOCK 3 	BLOCK4
-# 0		4		1		0 		
+# 0		4		1		0
 
 >,------------------------------------------------ # read into #1
 >,------------------------------------------------ # read into #2

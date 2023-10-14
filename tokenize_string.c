@@ -48,7 +48,7 @@ char **strtow(char *str, char *delims)
 		b = 0;
 		while (b < wrdLen)
 		{
-			words[i][b] = *(str + b);
+			words[a][b] = *(str + b);
 			b++;
 		}
 		words[a][b] = '\0';

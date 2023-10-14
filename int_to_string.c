@@ -15,7 +15,7 @@ void fill_numbase_buff(unsigned int num, unsigned int base,
 char *get_int(int num)
 {
 	unsigned int tmp;
-	int leng = 0;
+	int len = 0;
 	long num_l = 0;
 	char *reg;
 
@@ -85,7 +85,7 @@ void fill_numbase_buff(unsigned int num, unsigned int base,
 		if (reb > 9)
 			buff[a] = reb + 87;
 		else
-			buff[i] = reb + '0';
+			buff[a] = reb + '0';
 		num /= base;
 		a--;
 	}
