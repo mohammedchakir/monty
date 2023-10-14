@@ -1,16 +1,16 @@
 #include <stdlib.h>
 
-int get_word_count(char *str, char *delims)
-int is_delim(char ch, char *delims)
-char **strtow(char *str, char *delims)
-int get_word_length(char *str, char *delims)
-char *get_next_word(char *str, char *delims)
+int get_word_count(char *str, char *delims);
+int is_delim(char ch, char *delims);
+char **strtow(char *str, char *delims);
+int get_word_length(char *str, char *delims);
+char *get_next_word(char *str, char *delims);
 
 /**
  * strtow - Splits a string into individual words using delimiters.
  * @str: The string to be split into words.
  * @delims: Delimiters used to separate words.
- * Return: A 2D array of pointers, with each pointer pointing to an individual word.
+ * Return: 2D array of pointers, with each ptr pointing to an individual word.
  */
 char **strtow(char *str, char *delims)
 {

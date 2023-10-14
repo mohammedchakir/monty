@@ -1,8 +1,8 @@
 #include "monty.h"
 
-void monty_nop(stack_t **stack, unsigned int line_number)
-void monty_pstr(stack_t **stack, unsigned int line_number)
-void monty_pchar(stack_t **stack, unsigned int line_number)
+void monty_nop(stack_t **stack, unsigned int line_number);
+void monty_pstr(stack_t **stack, unsigned int line_number);
+void monty_pchar(stack_t **stack, unsigned int line_number);
 
 /**
  * monty_nop - Performs no operation for the Monty opcode 'nop'.
@@ -16,7 +16,7 @@ void monty_nop(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * monty_pchar - Prints the character in the top element of a stack_t linked list.
+ * monty_pchar - Prints the char in the top element of a stack_t linked list.
  * @stack: A pointer to the topmost node of a stack_t linked list.
  * @line_number: The current line number in the Monty bytecode file.
  */

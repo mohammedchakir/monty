@@ -1,11 +1,11 @@
 #include "monty.h"
 #include <string.h>
 
-void free_tokens(void)
-unsigned int token_arr_len(void)
-int is_empty_line(char *line, char *delims)
-int run_monty(FILE *script_fd)
-void (*get_op_func(char *opcode))(stack_t**, unsigned int)
+void free_tokens(void);
+unsigned int token_arr_len(void);
+int is_empty_line(char *line, char *delims);
+int run_monty(FILE *script_fd);
+void (*get_op_func(char *opcode))(stack_t**, unsigned int);
 
 
 /**
@@ -38,7 +38,7 @@ unsigned int token_arr_len(void)
 }
 
 /**
- * is_empty_line - Checks if a line read from getline consists solely of delimiters.
+ * is_empty_line - Checks if line read fm getline consist solely of delimiters.
  * @line: A pointer to the line.
  * @delims: A string of delimiter characters.
  * Return: 1 if the line only contains delimiters, 0 otherwise.

@@ -1,15 +1,16 @@
 #include <stdlib.h>
 
 
-unsigned int _abs(int i)
-char *get_int(int num)
-int get_numbase_len(unsigned int num, unsigned int base)
-void fill_numbase_buff(unsigned int num, unsigned int base, char *buff, int buff_size)
+unsigned int _abs(int i);
+char *get_int(int num);
+int get_numbase_len(unsigned int num, unsigned int base);
+void fill_numbase_buff(unsigned int num, unsigned int base,
+		char *buff, int buff_size);
 
 /**
  * get_int - Converts an integer to a character pointer for a new string.
  * @num: The number to convert to a string.
- * Return: A character pointer to the newly created string, or NULL if malloc fails.
+ * Return: Character pointer to newly created string, or NULL if malloc fails.
  */
 char *get_int(int num)
 {
@@ -47,10 +48,10 @@ unsigned int _abs(int i)
 }
 
 /**
- * get_numbase_len - Calculates the length of the buffer needed for an unsigned integer.
+ * get_numbase_len - Calculates the length of buffer needed for an uns integer.
  * @num: The number to get the length needed for.
  * @base: The base of the number representation used by the buffer.
- * Return: An integer containing the length of the buffer needed (excluding the null byte).
+ * Return: An integer containing the length of the buffer needed.
  */
 int get_numbase_len(unsigned int num, unsigned int base)
 {
@@ -72,7 +73,8 @@ int get_numbase_len(unsigned int num, unsigned int base)
  * @buff_size: The size of the buffer in bytes.
  * Return: Always void.
  */
-void fill_numbase_buff(unsigned int num, unsigned int base, char *buff, int buff_size)
+void fill_numbase_buff(unsigned int num, unsigned int base,
+		char *buff, int buff_size)
 {
 	int reb, a = buff_size - 1;
 

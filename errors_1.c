@@ -1,10 +1,10 @@
 #include "monty.h"
 
-int no_int_error(unsigned int line_number)
-int f_open_error(char *filename)
-int malloc_error(void)
-int usage_error(void)
-int unknown_op_error(char *opcode, unsigned int line_number)
+int no_int_error(unsigned int line_number);
+int f_open_error(char *filename);
+int malloc_error(void);
+int usage_error(void);
+int unknown_op_error(char *opcode, unsigned int line_number);
 
 /**
  * usage_error - Prints error messages related to usage.
@@ -40,7 +40,7 @@ int f_open_error(char *filename)
 /**
  * unknown_op_error - Prints error messages for unknown instructions.
  * @opcode: The opcode where the error occurred.
- * @line_number: The line number in the Monty bytecodes file where the error occurred.
+ * @line_number: Line number in Monty bytecodes file where the error occurred.
  * Return: Always returns (EXIT_FAILURE).
  */
 int unknown_op_error(char *opcode, unsigned int line_number)
@@ -51,7 +51,7 @@ int unknown_op_error(char *opcode, unsigned int line_number)
 
 /**
  * no_int_error - Prints error messages for invalid monty_push arguments.
- * @line_number: The line number in the Monty bytecodes file where the error occurred.
+ * @line_number: Line number in Monty bytecodes file where the error occurred.
  * Return: Always returns (EXIT_FAILURE).
  */
 int no_int_error(unsigned int line_number)

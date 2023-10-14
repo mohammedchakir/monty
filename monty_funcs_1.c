@@ -1,10 +1,10 @@
 #include "monty.h"
 
-void monty_pop(stack_t **stack, unsigned int line_number)
-void monty_push(stack_t **stack, unsigned int line_number)
-void monty_pall(stack_t **stack, unsigned int line_number)
-void monty_pint(stack_t **stack, unsigned int line_number)
-void monty_swap(stack_t **stack, unsigned int line_number)
+void monty_pop(stack_t **stack, unsigned int line_number);
+void monty_push(stack_t **stack, unsigned int line_number);
+void monty_pall(stack_t **stack, unsigned int line_number);
+void monty_pint(stack_t **stack, unsigned int line_number);
+void monty_swap(stack_t **stack, unsigned int line_number);
 
 /**
  * monty_push - Pushes a value onto a stack_t linked list.
