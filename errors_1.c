@@ -1,5 +1,11 @@
 #include "monty.h"
 
+int no_int_error(unsigned int line_number)
+int f_open_error(char *filename)
+int malloc_error(void)
+int usage_error(void)
+int unknown_op_error(char *opcode, unsigned int line_number)
+
 /**
  * usage_error - Prints error messages related to usage.
  * Return: Always returns (EXIT_FAILURE).
