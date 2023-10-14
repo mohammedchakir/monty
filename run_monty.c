@@ -6,13 +6,13 @@
  */
 void free_tokens(void)
 {
-	size_t i = 0;
+	size_t a = 0;
 
 	if (op_toks == NULL)
 		return;
 
-	for (i = 0; op_toks[i]; i++)
-		free(op_toks[i]);
+	for (a = 0; op_toks[a]; a++)
+		free(op_toks[a]);
 
 	free(op_toks);
 }
@@ -23,11 +23,11 @@ void free_tokens(void)
  */
 unsigned int token_arr_len(void)
 {
-	unsigned int toks_len = 0;
+	unsigned int tok_len = 0;
 
-	while (op_toks[toks_len])
-		toks_len++;
-	return (toks_len);
+	while (op_tok[tok_len])
+		tok_len++;
+	return (tok_len);
 }
 
 /**
@@ -38,16 +38,16 @@ unsigned int token_arr_len(void)
  */
 int is_empty_line(char *line, char *delims)
 {
-	int i, j;
+	int a, b;
 
-	for (i = 0; line[i]; i++)
+	for (a = 0; line[a]; a++)
 	{
-		for (j = 0; delims[j]; j++)
+		for (b = 0; delims[b]; b++)
 		{
-			if (line[i] == delims[j])
+			if (line[a] == delims[b])
 				break;
 		}
-		if (delims[j] == '\0')
+		if (delims[b] == '\0')
 			return (0);
 	}
 
@@ -81,12 +81,12 @@ void (*get_op_func(char *opcode))(stack_t**, unsigned int)
 		{"queue", monty_queue},
 		{NULL, NULL}
 	};
-	int i;
+	int a;
 
-	for (i = 0; op_funcs[i].opcode; i++)
+	for (a = 0; op_funcs[a].opcode; a++)
 	{
-		if (strcmp(opcode, op_funcs[i].opcode) == 0)
-			return (op_funcs[i].f);
+		if (strcmp(opcode, op_funcs[a].opcode) == 0)
+			return (op_funcs[a].f);
 	}
 
 	return (NULL);
