@@ -30,14 +30,14 @@ char *get_int(int num)
 
 /**
  * _abs - Calculates the absolute value of an integer.
- * @a: The integer to find the absolute value of.
+ * @i: The integer to find the absolute value of.
  * Return: An unsigned integer representing the absolute value of i.
  */
-unsigned int _abs(int a)
+unsigned int _abs(int i)
 {
-	if (a < 0)
-		return (-(unsigned int)a);
-	return ((unsigned int)a);
+	if (i < 0)
+		return (-(unsigned int)i);
+	return ((unsigned int)i);
 }
 
 /**
