@@ -8,7 +8,7 @@
 void monty_push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp, *new;
-	int i;
+	int a;
 
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
@@ -23,11 +23,11 @@ void monty_push(stack_t **stack, unsigned int line_number)
 		return;
 	}
 
-	for (i = 0; op_toks[1][i]; i++)
+	for (a = 0; op_toks[1][a]; a++)
 	{
-		if (op_toks[1][i] == '-' && i == 0)
+		if (op_toks[1][a] == '-' && a == 0)
 			continue;
-		if (op_toks[1][i] < '0' || op_toks[1][i] > '9')
+		if (op_toks[1][a] < '0' || op_toks[1][a] > '9')
 		{
 			set_op_tok_error(no_int_error(line_number));
 			return;
