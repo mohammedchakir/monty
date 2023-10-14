@@ -15,7 +15,7 @@ char *get_next_word(char *str, char *delims);
 char **strtow(char *str, char *delims)
 {
 	char **words = NULL;
-	int ws, wordLen, b, a = 0;
+	int ws, wrdLen, b, a = 0;
 
 	if (str == NULL || !*str)
 		return (NULL);
@@ -29,12 +29,12 @@ char **strtow(char *str, char *delims)
 		return (NULL);
 	while (a < ws)
 	{
-		wordLen = get_word_length(str, delims);
+		wrdLen = get_word_length(str, delims);
 		if (is_delim(*str, delims))
 		{
 			str = get_next_word(str, delims);
 		}
-		words[a] = malloc((wordLen + 1) * sizeof(char));
+		words[a] = malloc((wrdLen + 1) * sizeof(char));
 		if (words[a] == NULL)
 		{
 			while (a >= 0)
@@ -46,7 +46,7 @@ char **strtow(char *str, char *delims)
 			return (NULL);
 		}
 		b = 0;
-		while (b < wordLen)
+		while (b < wrdLen)
 		{
 			words[i][b] = *(str + b);
 			b++;
@@ -86,13 +86,13 @@ int is_delim(char ch, char *delims)
  */
 int get_word_length(char *str, char *delims)
 {
-	int wLen = 0, pending = 1, a = 0;
+	int wLen = 0, pend = 1, a = 0;
 
 	while (*(str + a))
 	{
 		if (is_delim(str[a], delims))
-			pending = 1;
-		else if (pending)
+			pend = 1;
+		else if (pend)
 		{
 			wLen++;
 		}
@@ -111,15 +111,15 @@ int get_word_length(char *str, char *delims)
  */
 int get_word_count(char *str, char *delims)
 {
-	int ws = 0, pending = 1, a = 0;
+	int ws = 0, pend = 1, a = 0;
 
 	while (*(str + a))
 	{
 		if (is_delim(str[a], delims))
-			pending = 1;
-		else if (pending)
+			pend = 1;
+		else if (pend)
 		{
-			pending = 0;
+			pend = 0;
 			ws++;
 		}
 		a++;
@@ -135,14 +135,14 @@ int get_word_count(char *str, char *delims)
  */
 char *get_next_word(char *str, char *delims)
 {
-	int pending = 0;
+	int pend = 0;
 	int a = 0;
 
 	while (*(str + a))
 	{
 		if (is_delim(str[a], delims))
-			pending = 1;
-		else if (pending)
+			pend = 1;
+		else if (pend)
 			break;
 		a++;
 	}
