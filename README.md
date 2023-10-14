@@ -381,5 +381,5 @@ Multiply two digits given by the user.
 -----------------
 ## Collaborators:
 
-[MOHAMMED CHAKIR](https://github.com/mohammedchakir) & []()
+[MOHAMMED CHAKIR](https://github.com/mohammedchakir)
 
