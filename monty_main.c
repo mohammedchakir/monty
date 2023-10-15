@@ -23,10 +23,10 @@ int main(int argc, char *argv[])
 
 /**
  * create_node - Creates a node.
- * @n: The number to store in the node.
+ * @num: The number to store in the node.
  * Return: A pointer to the node on success, or NULL on failure.
  */
-stack_t *create_node(int n)
+stack_t *create_node(int num)
 {
 	stack_t *vertex;
 
@@ -35,7 +35,7 @@ stack_t *create_node(int n)
 		err(4);
 	vertex->next = NULL;
 	vertex->prev = NULL;
-	vertex->n = n;
+	vertex->num = num;
 	return (vertex);
 }
 

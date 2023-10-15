@@ -58,7 +58,7 @@ void add_nodes(stack_t **stack, unsigned int line_number)
 /**
  * sub_nodes - Subtracts the values of the top two elements in the stack.
  * @stack: The pointer to a pointer pointing to the top node of the stack.
- * @line_mumber: An integer showing the line number of the opcode.
+ * @line_number: An integer showing the line number of the opcode.
  */
 void sub_nodes(stack_t **stack, unsigned int line_number)
 {

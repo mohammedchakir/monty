@@ -43,7 +43,7 @@ void read_file(FILE *fd)
  * @buffer: The line from the file.
  * @line_number: The line number.
  * @format: The storage format indicator (0 for stack, 1 for queue).
- * Return: Returns 0 if the storage format is set to stack, 1 if it's set to queue.
+ * Return: Returns 0 if storage format is set to stack, 1 if it's set to queue.
  */
 int parse_line(char *buffer, int line_number, int format)
 {
@@ -69,7 +69,7 @@ int parse_line(char *buffer, int line_number, int format)
 
 
 /**
- * find_func - Determines the appropriate function to execute based on the opcode.
+ * find_func - Determines the appropriate func to execute based on the opcode.
  * @opcode: The opcode.
  * @value: The argument of the opcode.
  * @format: The storage format indicator (0 for stack, 1 for queue).

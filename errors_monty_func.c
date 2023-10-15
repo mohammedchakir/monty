@@ -50,7 +50,7 @@ void err(int error_code, ...)
 
 /**
  * more_err - Manages and handles specific error cases.
- * @@error_code: The error codes and their meanings are as follows:
+ * @error_code: The error codes and their meanings are as follows:
  * (6) => Attempted "pint" on an empty stack.
  * (7) => Attempted "pop" on an empty stack.
  * (8) => Stack does not have enough elements for the operation.
@@ -92,7 +92,7 @@ void more_err(int error_code, ...)
 /**
  * string_err - Manages and handles specific string-related errors.
  *@error_code: The error codes and their meanings are as follows:
- * (10) ~> The number inside a node is outside the bounds of valid ASCII characters.
+ * (10) ~> The number inside node is outside bounds of valid ASCII characters.
  * (11) ~> The stack is empty.
  */
 void string_err(int error_code, ...)
