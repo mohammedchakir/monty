@@ -17,10 +17,10 @@ void add_to_stack(stack_t **new_node, __attribute__((unused))unsigned int ln)
 		head = *new_node;
 		return;
 	}
-	tmp = head;
+	temp = head;
 	head = *new_node;
-	head->next = tmp;
-	tmp->prev = head;
+	head->next = temp;
+	temp->prev = head;
 }
 
 

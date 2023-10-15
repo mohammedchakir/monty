@@ -56,7 +56,7 @@ int parse_line(char *buffer, int line_number, int format)
 	opcode = strtok(buffer, delims);
 	if (opcode == NULL)
 		return (format);
-	value = strtok(NULL, delims);
+	val = strtok(NULL, delims);
 
 	if (strcmp(opcode, "stack") == 0)
 		return (0);

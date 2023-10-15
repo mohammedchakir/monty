@@ -31,11 +31,11 @@ stack_t *create_node(int num)
 	stack_t *vertex;
 
 	vertex = malloc(sizeof(stack_t));
-	if (node == NULL)
+	if (vertex == NULL)
 		err(4);
 	vertex->next = NULL;
 	vertex->prev = NULL;
-	vertex->num = num;
+	vertex->n = num;
 	return (vertex);
 }
 

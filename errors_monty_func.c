@@ -91,7 +91,7 @@ void more_err(int error_code, ...)
 
 /**
  * string_err - Manages and handles specific string-related errors.
- *@error_code: The error codes and their meanings are as follows:
+ * @error_code: The error codes and their meanings are as follows:
  * (10) ~> The number inside node is outside bounds of valid ASCII characters.
  * (11) ~> The stack is empty.
  */
@@ -101,7 +101,7 @@ void string_err(int error_code, ...)
 	int line_num;
 
 	va_start(ag, error_code);
-	l_num = va_arg(ag, int);
+	line_num = va_arg(ag, int);
 	switch (error_code)
 	{
 		case 10:
