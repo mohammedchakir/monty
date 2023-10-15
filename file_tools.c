@@ -1,11 +1,11 @@
 #include "monty.h"
 
-/**
- * open_file - opens a file
- * @file_name: the file namepath
- * Return: void
- */
 
+/**
+ * open_file - Opens a file.
+ * @filePath: The path of the file to open.
+ * Return: None.
+ */
 void open_file(char *file_name)
 {
 	FILE *fd = fopen(file_name, "r");
@@ -19,11 +19,10 @@ void open_file(char *file_name)
 
 
 /**
- * read_file - reads a file
- * @fd: pointer to file descriptor
- * Return: void
+ * read_file - Reads the contents of a file.
+ * @fd: Pointer to the file descriptor.
+ * Return: None.
  */
-
 void read_file(FILE *fd)
 {
 	int line_number, format = 0;
@@ -39,15 +38,13 @@ void read_file(FILE *fd)
 
 
 /**
- * parse_line - Separates each line into tokens to determine
- * which function to call
- * @buffer: line from the file
- * @line_number: line number
- * @format:  storage format. If 0 Nodes will be entered as a stack.
- * if 1 nodes will be entered as a queue.
- * Return: Returns 0 if the opcode is stack. 1 if queue.
+ * parse_line - Breaks down each line into tokens to determine
+ * which function to execute.
+ * @buffer: The line from the file.
+ * @line_number: The line number.
+ * @format: The storage format indicator (0 for stack, 1 for queue).
+ * Return: Returns 0 if the storage format is set to stack, 1 if it's set to queue.
  */
-
 int parse_line(char *buffer, int line_number, int format)
 {
 	char *opcode, *value;
@@ -70,14 +67,14 @@ int parse_line(char *buffer, int line_number, int format)
 	return (format);
 }
 
+
 /**
- * find_func - find the appropriate function for the opcode
- * @opcode: opcode
- * @value: argument of opcode
- * @format:  storage format. If 0 Nodes will be entered as a stack.
- * @ln: line number
- * if 1 nodes will be entered as a queue.
- * Return: void
+ * find_func - Determines the appropriate function to execute based on the opcode.
+ * @opcode: The opcode.
+ * @value: The argument of the opcode.
+ * @format: The storage format indicator (0 for stack, 1 for queue).
+ * @ln: The line number.
+ * Return: None.
  */
 void find_func(char *opcode, char *value, int ln, int format)
 {
@@ -120,13 +117,12 @@ void find_func(char *opcode, char *value, int ln, int format)
 
 
 /**
- * call_fun - Calls the required function.
- * @func: Pointer to the function that is about to be called.
- * @op: string representing the opcode.
- * @val: string representing a numeric value.
- * @ln: line numeber for the instruction.
- * @format: Format specifier. If 0 Nodes will be entered as a stack.
- * if 1 nodes will be entered as a queue.
+ * call_fun - Invokes the appropriate function.
+ * @func: Pointer to the function to be called.
+ * @op: String representing the opcode.
+ * @val: String representing a numeric value.
+ * @ln: Line number for the instruction.
+ * @format: Storage format specifier (0 for stack, 1 for queue).
  */
 void call_fun(op_func func, char *op, char *val, int ln, int format)
 {
