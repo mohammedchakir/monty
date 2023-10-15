@@ -379,7 +379,7 @@ Multiply two digits given by the user.
 
 
 -----------------
-## Author:
+## Author 📑:
 
 [MOHAMMED CHAKIR](https://github.com/mohammedchakir)
 
