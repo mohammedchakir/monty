@@ -1,9 +1,10 @@
 #include "monty.h"
 
+
 /**
- * print_char - Prints the Ascii value.
- * @stack: Pointer to a pointer pointing to top node of the stack.
- * @line_number: Interger representing the line number of of the opcode.
+ * print_char - Displays the ASCII value of the top element in the stack.
+ * @stack: The pointer to a pointer pointing to the top node of the stack.
+ * @line_number: An integer showing the line number of the opcode.
  */
 void print_char(stack_t **stack, unsigned int line_number)
 {
@@ -19,9 +20,9 @@ void print_char(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * print_str - Prints a string.
- * @stack: Pointer to a pointer pointing to top node of the stack.
- * @ln: Interger representing the line number of of the opcode.
+ * print_str - Outputs a string from the stack.
+ * @stack: The pointer to a pointer pointing to the top node of the stack.
+ * @ln: An integer showing the line number of the opcode.
  */
 void print_str(stack_t **stack, __attribute__((unused))unsigned int ln)
 {
@@ -46,10 +47,11 @@ void print_str(stack_t **stack, __attribute__((unused))unsigned int ln)
 	printf("\n");
 }
 
+
 /**
- * rotl - Rotates the first node of the stack to the bottom.
- * @stack: Pointer to a pointer pointing to top node of the stack.
- * @ln: Interger representing the line number of of the opcode.
+ * rotl - Shifts the top node of the stack to the bottom.
+ * @stack: The pointer to a pointer pointing to the top node of the stack.
+ * @ln: An integer showing the line number of the opcode.
  */
 void rotl(stack_t **stack, __attribute__((unused))unsigned int ln)
 {
@@ -71,9 +73,9 @@ void rotl(stack_t **stack, __attribute__((unused))unsigned int ln)
 
 
 /**
- * rotr - Rotates the last node of the stack to the top.
- * @stack: Pointer to a pointer pointing to top node of the stack.
- * @ln: Interger representing the line number of of the opcode.
+ * rotr - Moves the bottom node of the stack to the top.
+ * @stack: The pointer to a pointer pointing to the top node of the stack.
+ * @ln: An integer showing the line number of the opcode.
  */
 void rotr(stack_t **stack, __attribute__((unused))unsigned int ln)
 {
