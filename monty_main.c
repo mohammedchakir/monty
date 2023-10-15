@@ -61,25 +61,25 @@ void free_nodes(void)
 
 /**
  * add_to_queue - Inserts a node into the queue.
- * @new_node: The pointer to the new node.
- * @ln: The line number of the opcode.
+ * @recent_node: The pointer to the new node.
+ * @line_num: The line number of the opcode.
  */
-void add_to_queue(stack_t **new_node, __attribute__((unused))unsigned int ln)
+void add_to_queue(stack_t **recent_node, __attribute__((unused))unsigned int line_num)
 {
 	stack_t *temp;
 
-	if (new_node == NULL || *new_node == NULL)
+	if (recent_node == NULL || *recent_node == NULL)
 		exit(EXIT_FAILURE);
 	if (head == NULL)
 	{
-		head = *new_node;
+		head = *recent_node;
 		return;
 	}
 	temp = head;
 	while (temp->next != NULL)
 		temp = temp->next;
 
-	temp->next = *new_node;
-	(*new_node)->prev = temp;
+	temp->next = *recent_node;
+	(*recent_node)->prev = temp;
 
 }
