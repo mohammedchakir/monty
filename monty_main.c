@@ -64,7 +64,8 @@ void free_nodes(void)
  * @recent_node: The pointer to the new node.
  * @line_num: The line number of the opcode.
  */
-void add_to_queue(stack_t **recent_node, __attribute__((unused))unsigned int line_num)
+void add_to_queue(stack_t **recent_node,
+		__attribute__((unused))unsigned int line_num)
 {
 	stack_t *temp;
 

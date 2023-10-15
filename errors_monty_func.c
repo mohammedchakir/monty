@@ -19,7 +19,7 @@ void err(int err_code, ...)
 	char *oper;
 	int line_num;
 
-	va_start(ag, err_code);
+	va_start(arg, err_code);
 	switch (err_code)
 	{
 		case 1:

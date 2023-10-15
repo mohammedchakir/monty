@@ -92,7 +92,7 @@ void div_nodes(stack_t **stack, unsigned int line_num)
 	if ((*stack)->n == 0)
 		more_err(9, line_num);
 	(*stack) = (*stack)->next;
-	total= (*stack)->n / (*stack)->prev->n;
+	total = (*stack)->n / (*stack)->prev->n;
 	(*stack)->n = total;
 	free((*stack)->prev);
 	(*stack)->prev = NULL;

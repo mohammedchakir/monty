@@ -63,7 +63,7 @@ int parse_line(char *buffer, int line_num, int format)
 	if (strcmp(opcode, "queue") == 0)
 		return (1);
 
-	find_func(opcode, val, line_number, format);
+	find_func(opcode, val, line_num, format);
 	return (format);
 }
 
@@ -118,13 +118,13 @@ void find_func(char *opcode, char *value, int line_num, int format)
 
 /**
  * call_fun - Invokes the appropriate function.
- * @ptrf: Pointer to the function to be called.
- * @sop: String representing the opcode.
- * @value: String representing a numeric value.
- * @line_num: Line number for the instruction.
- * @format: Storage format specifier (0 for stack, 1 for queue).
+ * @func: The pointer to the function to be called.
+ * @sop: The string representing the opcode.
+ * @value: The string representing a numeric value.
+ * @line_num: The line number for the instruction.
+ * @format: The storage format specifier (0 for stack, 1 for queue).
  */
-void call_fun(op_func ptrf, char *sop, char *value, int line_num, int format)
+void call_fun(op_func func, char *sop, char *value, int line_num, int format)
 {
 	stack_t *node;
 	int flags;
