@@ -4,27 +4,27 @@
 /**
  * print_char - Displays the ASCII value of the top element in the stack.
  * @stack: The pointer to a pointer pointing to the top node of the stack.
- * @line_number: An integer showing the line number of the opcode.
+ * @line_num: An integer showing the line number of the opcode.
  */
-void print_char(stack_t **stack, unsigned int line_number)
+void print_char(stack_t **stack, unsigned int line_num)
 {
 	int val;
 
 	if (stack == NULL || *stack == NULL)
-		string_err(11, line_number);
+		string_err(11, line_num);
 
 	val = (*stack)->n;
 	if (val < 0 || val > 127)
-		string_err(10, line_number);
+		string_err(10, line_num);
 	printf("%c\n", val);
 }
 
 /**
  * print_str - Outputs a string from the stack.
  * @stack: The pointer to a pointer pointing to the top node of the stack.
- * @ln: An integer showing the line number of the opcode.
+ * @line_num: An integer showing the line number of the opcode.
  */
-void print_str(stack_t **stack, __attribute__((unused))unsigned int ln)
+void print_str(stack_t **stack, __attribute__((unused))unsigned int line_num)
 {
 	int val;
 	stack_t *temp;
@@ -51,9 +51,9 @@ void print_str(stack_t **stack, __attribute__((unused))unsigned int ln)
 /**
  * rotl - Shifts the top node of the stack to the bottom.
  * @stack: The pointer to a pointer pointing to the top node of the stack.
- * @ln: An integer showing the line number of the opcode.
+ * @line_num: An integer showing the line number of the opcode.
  */
-void rotl(stack_t **stack, __attribute__((unused))unsigned int ln)
+void rotl(stack_t **stack, __attribute__((unused))unsigned int line_num)
 {
 	stack_t *temp;
 
@@ -75,9 +75,9 @@ void rotl(stack_t **stack, __attribute__((unused))unsigned int ln)
 /**
  * rotr - Moves the bottom node of the stack to the top.
  * @stack: The pointer to a pointer pointing to the top node of the stack.
- * @ln: An integer showing the line number of the opcode.
+ * @line_num: An integer showing the line number of the opcode.
  */
-void rotr(stack_t **stack, __attribute__((unused))unsigned int ln)
+void rotr(stack_t **stack, __attribute__((unused))unsigned int line_num)
 {
 	stack_t *temp;
 
