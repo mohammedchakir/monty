@@ -3,15 +3,15 @@
 
 /**
  * open_file - Opens a file.
- * @file_name: The path of the file to open.
+ * @file_path: The path of the file to open.
  * Return: None.
  */
-void open_file(char *file_name)
+void open_file(char *file_path)
 {
-	FILE *fd = fopen(file_name, "r");
+	FILE *fd = fopen(file_path, "r");
 
-	if (file_name == NULL || fd == NULL)
-		err(2, file_name);
+	if (file_path == NULL || fd == NULL)
+		err(2, file_path);
 
 	read_file(fd);
 	fclose(fd);
@@ -20,16 +20,16 @@ void open_file(char *file_name)
 
 /**
  * read_file - Reads the contents of a file.
- * @fd: Pointer to the file descriptor.
+ * @filedes: The pointer to the file descriptor.
  * Return: None.
  */
-void read_file(FILE *fd)
+void read_file(FILE *filedes)
 {
 	int line_num, format = 0;
 	char *buffer = NULL;
 	size_t length = 0;
 
-	for (line_num = 1; getline(&buffer, &length, fd) != -1; line_num++)
+	for (line_num = 1; getline(&buffer, &length, filedes) != -1; line_num++)
 	{
 		format = parse_line(buffer, line_num, format);
 	}
@@ -41,11 +41,11 @@ void read_file(FILE *fd)
  * parse_line - Breaks down each line into tokens to determine
  * which function to execute.
  * @buffer: The line from the file.
- * @line_number: The line number.
+ * @line_num: The line number.
  * @format: The storage format indicator (0 for stack, 1 for queue).
  * Return: Returns 0 if storage format is set to stack, 1 if it's set to queue.
  */
-int parse_line(char *buffer, int line_number, int format)
+int parse_line(char *buffer, int line_num, int format)
 {
 	char *opcode, *val;
 	const char *delims = "\n ";
@@ -73,10 +73,10 @@ int parse_line(char *buffer, int line_number, int format)
  * @opcode: The opcode.
  * @value: The argument of the opcode.
  * @format: The storage format indicator (0 for stack, 1 for queue).
- * @ln: The line number.
+ * @line_num: The line number.
  * Return: None.
  */
-void find_func(char *opcode, char *value, int ln, int format)
+void find_func(char *opcode, char *value, int line_num, int format)
 {
 	int n;
 	int flags;
@@ -107,50 +107,50 @@ void find_func(char *opcode, char *value, int ln, int format)
 	{
 		if (strcmp(opcode, func_list[n].opcode) == 0)
 		{
-			call_fun(func_list[n].f, opcode, value, ln, format);
+			call_fun(func_list[n].f, opcode, value, line_num, format);
 			flags = 0;
 		}
 	}
 	if (flags == 1)
-		err(3, ln, opcode);
+		err(3, line_num, opcode);
 }
 
 
 /**
  * call_fun - Invokes the appropriate function.
- * @func: Pointer to the function to be called.
- * @op: String representing the opcode.
- * @val: String representing a numeric value.
- * @ln: Line number for the instruction.
+ * @ptrf: Pointer to the function to be called.
+ * @sop: String representing the opcode.
+ * @value: String representing a numeric value.
+ * @line_num: Line number for the instruction.
  * @format: Storage format specifier (0 for stack, 1 for queue).
  */
-void call_fun(op_func func, char *op, char *val, int ln, int format)
+void call_fun(op_func ptrf, char *sop, char *value, int line_num, int format)
 {
 	stack_t *node;
 	int flags;
 	int n;
 
 	flags = 1;
-	if (strcmp(op, "push") == 0)
+	if (strcmp(sop, "push") == 0)
 	{
-		if (val != NULL && val[0] == '-')
+		if (value != NULL && value[0] == '-')
 		{
-			val = val + 1;
+			value = value + 1;
 			flags = -1;
 		}
-		if (val == NULL)
-			err(5, ln);
-		for (n = 0; val[n] != '\0'; n++)
+		if (value == NULL)
+			err(5, line_num);
+		for (n = 0; value[n] != '\0'; n++)
 		{
-			if (isdigit(val[n]) == 0)
-				err(5, ln);
+			if (isdigit(value[n]) == 0)
+				err(5, line_num);
 		}
-		node = create_node(atoi(val) * flags);
+		node = create_node(atoi(value) * flags);
 		if (format == 0)
-			func(&node, ln);
+			func(&node, line_num);
 		if (format == 1)
-			add_to_queue(&node, ln);
+			add_to_queue(&node, line_num);
 	}
 	else
-		func(&head, ln);
+		func(&head, line_num);
 }
