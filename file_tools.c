@@ -3,7 +3,7 @@
 
 /**
  * open_file - Opens a file.
- * @filePath: The path of the file to open.
+ * @file_name: The path of the file to open.
  * Return: None.
  */
 void open_file(char *file_name)
@@ -25,13 +25,13 @@ void open_file(char *file_name)
  */
 void read_file(FILE *fd)
 {
-	int line_number, format = 0;
+	int line_num, format = 0;
 	char *buffer = NULL;
-	size_t len = 0;
+	size_t length = 0;
 
-	for (line_number = 1; getline(&buffer, &len, fd) != -1; line_number++)
+	for (line_num = 1; getline(&buffer, &length, fd) != -1; line_num++)
 	{
-		format = parse_line(buffer, line_number, format);
+		format = parse_line(buffer, line_num, format);
 	}
 	free(buffer);
 }
@@ -47,23 +47,23 @@ void read_file(FILE *fd)
  */
 int parse_line(char *buffer, int line_number, int format)
 {
-	char *opcode, *value;
-	const char *delim = "\n ";
+	char *opcode, *val;
+	const char *delims = "\n ";
 
 	if (buffer == NULL)
 		err(4);
 
-	opcode = strtok(buffer, delim);
+	opcode = strtok(buffer, delims);
 	if (opcode == NULL)
 		return (format);
-	value = strtok(NULL, delim);
+	value = strtok(NULL, delims);
 
 	if (strcmp(opcode, "stack") == 0)
 		return (0);
 	if (strcmp(opcode, "queue") == 0)
 		return (1);
 
-	find_func(opcode, value, line_number, format);
+	find_func(opcode, val, line_number, format);
 	return (format);
 }
 
@@ -78,8 +78,8 @@ int parse_line(char *buffer, int line_number, int format)
  */
 void find_func(char *opcode, char *value, int ln, int format)
 {
-	int i;
-	int flag;
+	int n;
+	int flags;
 
 	instruction_t func_list[] = {
 		{"push", add_to_stack},
@@ -103,15 +103,15 @@ void find_func(char *opcode, char *value, int ln, int format)
 	if (opcode[0] == '#')
 		return;
 
-	for (flag = 1, i = 0; func_list[i].opcode != NULL; i++)
+	for (flags = 1, n = 0; func_list[n].opcode != NULL; n++)
 	{
-		if (strcmp(opcode, func_list[i].opcode) == 0)
+		if (strcmp(opcode, func_list[n].opcode) == 0)
 		{
-			call_fun(func_list[i].f, opcode, value, ln, format);
-			flag = 0;
+			call_fun(func_list[n].f, opcode, value, ln, format);
+			flags = 0;
 		}
 	}
-	if (flag == 1)
+	if (flags == 1)
 		err(3, ln, opcode);
 }
 
@@ -127,25 +127,25 @@ void find_func(char *opcode, char *value, int ln, int format)
 void call_fun(op_func func, char *op, char *val, int ln, int format)
 {
 	stack_t *node;
-	int flag;
-	int i;
+	int flags;
+	int n;
 
-	flag = 1;
+	flags = 1;
 	if (strcmp(op, "push") == 0)
 	{
 		if (val != NULL && val[0] == '-')
 		{
 			val = val + 1;
-			flag = -1;
+			flags = -1;
 		}
 		if (val == NULL)
 			err(5, ln);
-		for (i = 0; val[i] != '\0'; i++)
+		for (n = 0; val[n] != '\0'; n++)
 		{
-			if (isdigit(val[i]) == 0)
+			if (isdigit(val[n]) == 0)
 				err(5, ln);
 		}
-		node = create_node(atoi(val) * flag);
+		node = create_node(atoi(val) * flags);
 		if (format == 0)
 			func(&node, ln);
 		if (format == 1)
