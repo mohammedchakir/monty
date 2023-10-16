@@ -8,13 +8,13 @@
  */
 void open_file(char *file_path)
 {
-	FILE *fd = fopen(file_path, "r");
+	FILE *filedes = fopen(file_path, "r");
 
-	if (file_path == NULL || fd == NULL)
+	if (file_path == NULL || finedes == NULL)
 		err(2, file_path);
 
-	read_file(fd);
-	fclose(fd);
+	read_file(finedes);
+	fclose(filedes);
 }
 
 
