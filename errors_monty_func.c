@@ -26,8 +26,7 @@ void err(int err_code, ...)
 			fprintf(stderr, "USAGE: monty file\n");
 			break;
 		case 2:
-			fprintf(stderr, "Error: Can't open file %s\n",
-				va_arg(arg, char *));
+			fprintf(stderr, "Error: Can't open file %s\n", va_arg(arg, char *));
 			break;
 		case 3:
 			line_num = va_arg(arg, int);
@@ -66,12 +65,10 @@ void more_err(int err_code, ...)
 	switch (err_code)
 	{
 		case 6:
-			fprintf(stderr, "L%d: can't pint, stack empty\n",
-				va_arg(arg, int));
+			fprintf(stderr, "L%d: can't pint, stack empty\n", va_arg(arg, int));
 			break;
 		case 7:
-			fprintf(stderr, "L%d: can't pop an empty stack\n",
-				va_arg(arg, int));
+			fprintf(stderr, "L%d: can't pop an empty stack\n", va_arg(arg, int));
 			break;
 		case 8:
 			line_num = va_arg(arg, unsigned int);
