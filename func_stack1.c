@@ -63,7 +63,6 @@ void print_stack(stack_t **stack, unsigned int line_num)
 {
 	stack_t *temp;
 
-	(void) line_num;
 	if (stack == NULL)
 		exit(EXIT_FAILURE);
 	temp = *stack;
