@@ -48,24 +48,6 @@ void print_str(stack_t **stack, __attribute__((unused))unsigned int line_num)
 }
 
 
-/**
- * create_node - Creates a node.
- * @num: The number to store in the node.
- * Return: A pointer to the node on success, or NULL on failure.
- */
-stack_t *create_node(int num)
-{
-	stack_t *vertex;
-
-	vertex = malloc(sizeof(stack_t));
-	if (vertex == NULL)
-		err(4);
-	vertex->next = NULL;
-	vertex->prev = NULL;
-	vertex->n = num;
-	return (vertex);
-}
-
 
 /**
  * rotl - Shifts the top node of the stack to the bottom.
