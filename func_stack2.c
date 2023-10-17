@@ -3,6 +3,25 @@
 
 
 /**
+ * create_node - Creates a node.
+ * @num: The number to store in the node.
+ * Return: A pointer to the node on success, or NULL on failure.
+ */
+stack_t *create_node(int num)
+{
+	stack_t *vertex;
+
+	vertex = malloc(sizeof(stack_t));
+	if (vertex == NULL)
+		err(4);
+	vertex->next = NULL;
+	vertex->prev = NULL;
+	vertex->n = num;
+	return (vertex);
+}
+
+
+/**
  * free_nodes - Deallocates memory for nodes in the stack.
  */
 void free_nodes(void)
@@ -75,25 +94,4 @@ void nop(stack_t **stack, unsigned int line_num)
 	(void)line_num;
 }
 
-
-/**
- * sub_nodes - Subtracts the values of the top two elements in the stack.
- * @stack: The pointer to a pointer pointing to the top node of the stack.
- * @line_num: An integer showing the line number of the opcode.
- */
-void sub_nodes(stack_t **stack, unsigned int line_num)
-{
-	int total;
-
-	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
-
-		more_err(8, line_num, "sub");
-
-
-	(*stack) = (*stack)->next;
-	total = (*stack)->n - (*stack)->prev->n;
-	(*stack)->n = total;
-	free((*stack)->prev);
-	(*stack)->prev = NULL;
-}
 
