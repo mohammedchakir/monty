@@ -3,6 +3,28 @@
 
 
 /**
+ * sub_nodes - Subtracts the values of the top two elements in the stack.
+ * @stack: The pointer to a pointer pointing to the top node of the stack.
+ * @line_num: An integer showing the line number of the opcode.
+ */
+void sub_nodes(stack_t **stack, unsigned int line_num)
+{
+	int total;
+
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+
+		more_err(8, line_num, "sub");
+
+
+	(*stack) = (*stack)->next;
+	total = (*stack)->n - (*stack)->prev->n;
+	(*stack)->n = total;
+	free((*stack)->prev);
+	(*stack)->prev = NULL;
+}
+
+
+/**
  * div_nodes - Divides the values of the top two elements in the stack.
  * @stack: The pointer to a pointer pointing to the top node of the stack.
  * @line_num: An integer showing the line number of the opcode.
