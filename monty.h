@@ -77,4 +77,4 @@ void pop_top(stack_t **, unsigned int);
 
 
 
-#endif /* __MONTY_H__ */
+#endif
