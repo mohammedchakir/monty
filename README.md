@@ -29,7 +29,7 @@ Read or watch:
 
 ### *Data structures*
 
-The project use this data structures.
+The project use the following data structures.
 ```
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
